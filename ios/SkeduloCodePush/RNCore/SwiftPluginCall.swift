@@ -30,7 +30,10 @@ class SwiftPluginCall: NSObject {
         
         nativeCountData+=1;
         
-        ViewController.shared?.updateCount()
+        DispatchQueue.main.sync {
+            ViewController.shared?.updateCount()
+        }
+    
     }
     
 }

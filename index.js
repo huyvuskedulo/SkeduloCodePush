@@ -32,9 +32,10 @@ const RNHighScores = ({ scores }) => {
         RN Count Data: {globalData.count}
       </Text>
 
+      <Button title='Increase Native Count' onPress={increaseNativeCount}></Button>
+    
       <Button title='exit' onPress={exit}></Button>
 
-      <Button title='Increase Native Count' onPress={increaseNativeCount}></Button>
     </View>
   );
 };
