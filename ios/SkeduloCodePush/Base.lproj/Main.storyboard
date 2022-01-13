@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SkeduloCodePush" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iOS Native View" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wbc-ta-JxU">
+                                <rect key="frame" x="118" y="44" width="178.5" height="31.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vu3-qk-ru6">
+                                <rect key="frame" x="109" y="83.5" width="196.5" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Increase Count to RN View"/>
+                                <connections>
+                                    <action selector="increaseCountToRN:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ha6-D5-xRL"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P2B-gf-8du">
+                                <rect key="frame" x="0.0" y="187.5" width="414" height="1"/>
+                                <color key="backgroundColor" systemColor="secondaryLabelColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="6Bf-hr-H4b"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RJi-Gb-upW">
+                                <rect key="frame" x="144" y="123" width="126" height="45"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="MEX"/>
+                                <connections>
+                                    <action selector="onMexClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mZY-MF-6fm"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="78Y-T3-1hs">
+                                <rect key="frame" x="10" y="198.5" width="394" height="20.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="Native Count:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Msn-bl-K0k">
+                                        <rect key="frame" x="0.0" y="0.0" width="103.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Fv-iL-XVb">
+                                        <rect key="frame" x="113.5" y="0.0" width="280.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="P2B-gf-8du" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="859-fL-OqF"/>
+                            <constraint firstItem="P2B-gf-8du" firstAttribute="top" secondItem="RJi-Gb-upW" secondAttribute="bottom" constant="34" id="89k-XA-uIe"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="P2B-gf-8du" secondAttribute="trailing" id="AJN-fq-gOM"/>
+                            <constraint firstItem="Vu3-qk-ru6" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="E7x-SZ-LT0"/>
+                            <constraint firstItem="Wbc-ta-JxU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Jz3-FC-6ng"/>
+                            <constraint firstItem="Vu3-qk-ru6" firstAttribute="top" secondItem="Wbc-ta-JxU" secondAttribute="bottom" constant="8" symbolic="YES" id="Qbi-fu-asn"/>
+                            <constraint firstItem="78Y-T3-1hs" firstAttribute="top" secondItem="P2B-gf-8du" secondAttribute="bottom" constant="10" id="Ub2-Ps-eNl"/>
+                            <constraint firstItem="RJi-Gb-upW" firstAttribute="top" secondItem="Vu3-qk-ru6" secondAttribute="bottom" constant="8" symbolic="YES" id="cQm-TD-oQV"/>
+                            <constraint firstItem="Wbc-ta-JxU" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="gje-Fe-KmA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="78Y-T3-1hs" secondAttribute="trailing" constant="10" id="nku-oA-WtR"/>
+                            <constraint firstItem="RJi-Gb-upW" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="sSf-Co-jif"/>
+                            <constraint firstItem="78Y-T3-1hs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="vGA-go-knR"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="_nativeCountLabel" destination="8Fv-iL-XVb" id="KCD-Y7-S3n"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="28.985507246376812" y="83.705357142857139"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

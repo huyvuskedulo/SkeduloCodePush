@@ -8,12 +8,15 @@ import {
   NativeModules,
   NativeEventEmitter
 } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import DanceSettings from './mex/dance_settings';
 
-const RNHighScores = ({ scores }) => {
+const Stack = createNativeStackNavigator();
+
+const MainScreen = ({ navigation }) => {
 
   const { CalendarModule } = NativeModules;
-
-  console.log("WHAT", NativeModules.ReactNativeEventEmitter)
 
   const exit = function() {
     CalendarModule.exit()
@@ -21,6 +24,10 @@ const RNHighScores = ({ scores }) => {
 
   const increaseNativeCount = function() {
     CalendarModule.increaseNativeCount()
+  }
+
+  const goToDanceSettings = function() {
+    navigation.navigate('DanceSettings')
   }
 
   return (
@@ -34,11 +41,32 @@ const RNHighScores = ({ scores }) => {
 
       <Button title='Increase Native Count' onPress={increaseNativeCount}></Button>
     
+      <Button title="Go to 'Can I dance settings'" onPress={goToDanceSettings}/>
+
       <Button title='exit' onPress={exit}></Button>
 
     </View>
   );
 };
+
+const MyStack = () => {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Home"
+          component={MainScreen}
+          options={{ title: 'Welcome' }}
+        />
+        <Stack.Screen
+          name="DanceSettings"
+          component={DanceSettings}
+          options={{ title: 'Dance Settings' }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -72,4 +100,4 @@ eventEmitter.addListener("increaseCount", () => {
 })
 
 // Module name
-AppRegistry.registerComponent('RNHighScores', () => RNHighScores);
+AppRegistry.registerComponent('RNHighScores', () => MyStack);
