@@ -21,5 +21,16 @@
 			</array>
 		</dict>
 	</dict>
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleURLName</key>
+            <string>skedcodepush</string>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>skedcodepush</string>
+            </array>
+        </dict>
+    </array>
 </dict>
 </plist>

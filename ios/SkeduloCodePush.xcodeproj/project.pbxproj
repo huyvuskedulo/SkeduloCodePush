@@ -19,6 +19,7 @@
 		2EB56B29278FEC8E00DA5D37 /* ReactNativeEventEmitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EB56B28278FEC8E00DA5D37 /* ReactNativeEventEmitter.m */; };
 		2EB56B2B278FECAF00DA5D37 /* ReactNativeEventEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB56B2A278FECAF00DA5D37 /* ReactNativeEventEmitter.swift */; };
 		2EB56B2D278FECDD00DA5D37 /* EventEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB56B2C278FECDD00DA5D37 /* EventEmitter.swift */; };
+		2EB56B2F2795172B00DA5D37 /* JSProcessManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB56B2E2795172B00DA5D37 /* JSProcessManager.swift */; };
 		7536ECE682C172CCC1764477 /* libPods-SkeduloCodePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E738130456C1B9C6D57A3C38 /* libPods-SkeduloCodePush.a */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +41,7 @@
 		2EB56B28278FEC8E00DA5D37 /* ReactNativeEventEmitter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReactNativeEventEmitter.m; sourceTree = "<group>"; };
 		2EB56B2A278FECAF00DA5D37 /* ReactNativeEventEmitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactNativeEventEmitter.swift; sourceTree = "<group>"; };
 		2EB56B2C278FECDD00DA5D37 /* EventEmitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventEmitter.swift; sourceTree = "<group>"; };
+		2EB56B2E2795172B00DA5D37 /* JSProcessManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSProcessManager.swift; sourceTree = "<group>"; };
 		343DEF984158BE6347AC898A /* Pods-SkeduloCodePush.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SkeduloCodePush.debug.xcconfig"; path = "Target Support Files/Pods-SkeduloCodePush/Pods-SkeduloCodePush.debug.xcconfig"; sourceTree = "<group>"; };
 		E738130456C1B9C6D57A3C38 /* libPods-SkeduloCodePush.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SkeduloCodePush.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -100,6 +102,7 @@
 				2EB56B28278FEC8E00DA5D37 /* ReactNativeEventEmitter.m */,
 				2EB56B2A278FECAF00DA5D37 /* ReactNativeEventEmitter.swift */,
 				2EB56B2C278FECDD00DA5D37 /* EventEmitter.swift */,
+				2EB56B2E2795172B00DA5D37 /* JSProcessManager.swift */,
 			);
 			path = RNCore;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 				2E39F424278D885D00B3C852 /* AppDelegate.swift in Sources */,
 				2E59EE8B278ED6400076A6E3 /* SwiftPluginCall.swift in Sources */,
 				2E59EE84278E9F740076A6E3 /* SceneDelegate.swift in Sources */,
+				2EB56B2F2795172B00DA5D37 /* JSProcessManager.swift in Sources */,
 				2E59EE89278ED4B30076A6E3 /* RCTCalendarModule.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -12,9 +12,15 @@ import React
 class AppDelegate: UIResponder, UIApplicationDelegate, RCTBridgeDelegate {
     
     static var bridge: RCTBridge!
+    static var isDevelopmentOn: Bool = true
+    static var shared:AppDelegate? = nil
     
     func sourceURL(for bridge: RCTBridge!) -> URL! {
-        return URL(string: "http://localhost:8081/index.bundle?platform=ios")!
+        if AppDelegate.isDevelopmentOn {
+            return URL(string: "http://localhost:8081/index.bundle?platform=ios")!
+        } else {
+            return  FileManager.default.urls(for: .documentDirectory, in:.userDomainMask)[0].appendingPathComponent("main.jsbundle", isDirectory: false)
+        }
     }
 
 

@@ -5,18 +5,20 @@ import {
   Text,
   View,
   Button,
+  TouchableOpacity,
   NativeModules,
   NativeEventEmitter
 } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import DanceSettings from './mex/dance_settings';
+import ReactNative2048 from './mex/game_2048/game_2048';
+import globalData from './mex/global_data';
 
+const { CalendarModule } = NativeModules;
 const Stack = createNativeStackNavigator();
 
 const MainScreen = ({ navigation }) => {
-
-  const { CalendarModule } = NativeModules;
 
   const exit = function() {
     CalendarModule.exit()
@@ -26,25 +28,39 @@ const MainScreen = ({ navigation }) => {
     CalendarModule.increaseNativeCount()
   }
 
-  const goToDanceSettings = function() {
-    navigation.navigate('DanceSettings')
+  const goToReactNative2048 = function() {
+    navigation.navigate('ReactNative2048')
   }
+
+  React.useLayoutEffect(() => {
+    navigation.setOptions({
+      headerLeft: () => (
+        <Button onPress={exit} title="Exit" />
+      ),
+    });
+  }, [navigation]);
 
   return (
     <View style={styles.container}>
 
-      <Text style={{fontSize: 30}}>React Native View</Text>
+      <Text style={[styles.text, {fontSize: 30}]}>React Native View</Text>
 
-      <Text style={styles.highScoresTitle}>
+      <Text style={[styles.highScoresTitle, styles.text]}>
         RN Count Data: {globalData.count}
       </Text>
 
-      <Button title='Increase Native Count' onPress={increaseNativeCount}></Button>
+      <TouchableOpacity onPress={increaseNativeCount}>
+        <View>
+          <Text style={styles.button}>Increase Native Count</Text>
+        </View>
+      </TouchableOpacity>
+
+      <TouchableOpacity onPress={goToReactNative2048}>
+        <View>
+          <Text style={styles.button}>Play 2048</Text>
+        </View>
+      </TouchableOpacity>
     
-      <Button title="Go to 'Can I dance settings'" onPress={goToDanceSettings}/>
-
-      <Button title='exit' onPress={exit}></Button>
-
     </View>
   );
 };
@@ -52,7 +68,16 @@ const MainScreen = ({ navigation }) => {
 const MyStack = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator 
+          screenOptions={{
+            contentStyle:{
+              backgroundColor:'#04293A'
+            },
+            headerTintColor: '#FFFFFF',
+            headerStyle: {
+              backgroundColor: '#041C32',
+            },      
+        }}>
         <Stack.Screen
           name="Home"
           component={MainScreen}
@@ -62,6 +87,11 @@ const MyStack = () => {
           name="DanceSettings"
           component={DanceSettings}
           options={{ title: 'Dance Settings' }}
+        />
+        <Stack.Screen
+          name="ReactNative2048"
+          component={ReactNative2048}
+          options={{ title: '2048' }}
         />
       </Stack.Navigator>
     </NavigationContainer>
@@ -74,12 +104,19 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     alignContent: 'space-around',
-    backgroundColor: '#FFFFFF'
   },
   highScoresTitle: {
     fontSize: 20,
     textAlign: 'center',
     margin: 10
+  },
+  text: {
+    color: '#FFFFFF'
+  },
+  button: {
+    margin: 10,
+    fontSize: 18,
+    color: '#ECB365'
   },
   scores: {
     textAlign: 'center',
@@ -88,16 +125,22 @@ const styles = StyleSheet.create({
   }
 });
 
-console.log("start")
-
-const globalData = {
-  count: 0
-}
-
 const eventEmitter = new NativeEventEmitter(NativeModules.ReactNativeEventEmitter)
 eventEmitter.addListener("increaseCount", () => {
   globalData.count++;
 })
+eventEmitter.addListener("onJobCompleted", () => {
+  if (globalData.RN2048Score > 50) {
+    return CalendarModule.callback("")
+  } else {
+    return CalendarModule.callback(JSON.stringify({
+      "message": "You need to play 2048 with score above 50!",
+      "redirectionUrl": "skedcodepush://extension/ReactNative2048?requireScore=50"
+    }))
+  }
+
+})
 
 // Module name
 AppRegistry.registerComponent('RNHighScores', () => MyStack);
+AppRegistry.registerComponent('ReactNative2048', () => ReactNative2048)

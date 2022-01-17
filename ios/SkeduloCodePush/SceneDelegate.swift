@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import React
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -46,7 +47,45 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
+    
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        guard let url = URLContexts.first?.url else {
+            return
+        }
 
+        // Process the URL.
+        guard let components = NSURLComponents(url: url, resolvingAgainstBaseURL: true),
+              var moduleName = components.path else {
+                  return;
+              }
+        
+        moduleName.removeFirst()
+        
+        let view = RCTRootView(bridge: AppDelegate.bridge, moduleName: moduleName, initialProperties: url.queryDictionary)
+        
+        SwiftPluginCall.openRNView(rootView: view, fromVc: UIApplication.shared.keyWindow!.rootViewController!)
 
+    }
+
+}
+
+extension URL {
+    var queryDictionary: [String: String]? {
+        guard let query = self.query else { return nil}
+
+        var queryStrings = [String: String]()
+        for pair in query.components(separatedBy: "&") {
+
+            let key = pair.components(separatedBy: "=")[0]
+
+            let value = pair
+                .components(separatedBy:"=")[1]
+                .replacingOccurrences(of: "+", with: " ")
+                .removingPercentEncoding ?? ""
+
+            queryStrings[key] = value
+        }
+        return queryStrings
+    }
 }
 

@@ -7,12 +7,24 @@
 
 import Foundation
 import UIKit
+import React
 
 @objc
 class SwiftPluginCall: NSObject {
     
     public static var sharedController: UIViewController? = nil
     public static var nativeCountData: Int = 0
+    
+    static func openRNView(rootView: RCTRootView, fromVc: UIViewController) {
+        let vc = UIViewController()
+        vc.modalPresentationStyle = .fullScreen
+
+        vc.view = rootView
+        
+        SwiftPluginCall.sharedController = vc;
+        
+        fromVc.present(vc, animated: true, completion: nil)
+    }
     
     @objc
     static func exit() {
@@ -33,6 +45,13 @@ class SwiftPluginCall: NSObject {
         DispatchQueue.main.sync {
             ViewController.shared?.updateCount()
         }
+    
+    }
+    
+    @objc
+    static func callback(data: String) {
+        
+        JSProcessManager.shared.callBackMethod(result: data)
     
     }
     
