@@ -345,6 +345,7 @@ PODS:
   - Yoga (1.14.0)
   - YogaKit (1.18.1):
     - Yoga (~> 1.14)
+  - ZIPFoundation (0.9.11)
 
 DEPENDENCIES:
   - boost (from `../node_modules/react-native/third-party-podspecs/boost.podspec`)
@@ -402,6 +403,7 @@ DEPENDENCIES:
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - RNScreens (from `../node_modules/react-native-screens`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
+  - ZIPFoundation (~> 0.9)
 
 SPEC REPOS:
   trunk:
@@ -419,6 +421,7 @@ SPEC REPOS:
     - libevent
     - OpenSSL-Universal
     - YogaKit
+    - ZIPFoundation
 
 EXTERNAL SOURCES:
   boost:
@@ -533,7 +536,8 @@ SPEC CHECKSUMS:
   RNScreens: 522705f2e5c9d27efb17f24aceb2bf8335bc7b8e
   Yoga: e7dc4e71caba6472ff48ad7d234389b91dadc280
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
+  ZIPFoundation: b1f0de4eed33e74a676f76e12559ab6b75990197
 
-PODFILE CHECKSUM: 8769906c4639c638c3ff01bd002fdd1fbd2f4c15
+PODFILE CHECKSUM: 590215df7fbc06c4a9db0e0f5b9cf5f5375b7562
 
 COCOAPODS: 1.11.2

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UC7-6e-rb5">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="0vu-bx-Wiy">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iOS Native View" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wbc-ta-JxU">
                                         <rect key="frame" x="118" y="0.0" width="178.5" height="31.5"/>
@@ -133,13 +133,13 @@
                                         </constraints>
                                         <color key="tintColor" red="1" green="0.4366348028" blue="0.47239163000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Complete Job Simulator"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Job Simulator"/>
                                         <connections>
-                                            <action selector="completeJobSimulator:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3EO-5N-rcM"/>
+                                            <segue destination="sTO-eX-F7V" kind="show" id="4YG-SF-TBI"/>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" horizontalHuggingPriority="1" verticalHuggingPriority="1" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" translatesAutoresizingMaskIntoConstraints="NO" id="vlK-8Q-nIx">
-                                        <rect key="frame" x="207" y="354.5" width="0.0" height="463.5"/>
+                                        <rect key="frame" x="207" y="354.5" width="0.0" height="419.5"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                 </subviews>
@@ -154,6 +154,7 @@
                             <constraint firstItem="0vu-bx-Wiy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="yZg-sn-utu"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Caf-II-tIG"/>
                     <connections>
                         <outlet property="_downloadLatestBtn" destination="WqG-gt-g5E" id="rmG-S8-Pto"/>
                         <outlet property="_nativeCountLabel" destination="8Fv-iL-XVb" id="KCD-Y7-S3n"/>
@@ -161,7 +162,81 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="28.985507246376812" y="83.705357142857139"/>
+            <point key="canvasLocation" x="28" y="84"/>
+        </scene>
+        <!--Job Details-->
+        <scene sceneID="JDj-Tj-ZCG">
+            <objects>
+                <viewController title="Job Details" id="sTO-eX-F7V" customClass="JobSimulatorViewController" customModule="SkeduloCodePush" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eo2-Rl-dxm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="z4s-dc-nmo">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7h9-EP-DT2">
+                                        <rect key="frame" x="132" y="0.0" width="150" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="Osy-lb-8CA"/>
+                                            <constraint firstAttribute="height" constant="44" id="eqs-yQ-Nkq"/>
+                                        </constraints>
+                                        <color key="tintColor" red="1" green="0.4366348028" blue="0.47239163000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Complete Job"/>
+                                        <connections>
+                                            <action selector="onCompleteJobClicked:" destination="sTO-eX-F7V" eventType="touchUpInside" id="Rpl-nm-AJc"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Just image this is a job details !" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pid-gI-0Nf">
+                                        <rect key="frame" x="89" y="64" width="236.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="And In Progress Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NJK-4f-wPd">
+                                        <rect key="frame" x="120" y="104.5" width="174" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" horizontalHuggingPriority="1" verticalHuggingPriority="1" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" translatesAutoresizingMaskIntoConstraints="NO" id="diV-AA-3bd">
+                                        <rect key="frame" x="207" y="145" width="0.0" height="629"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="h3b-kg-dl6"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="z4s-dc-nmo" firstAttribute="leading" secondItem="h3b-kg-dl6" secondAttribute="leading" id="UbZ-oD-c4a"/>
+                            <constraint firstItem="z4s-dc-nmo" firstAttribute="top" secondItem="h3b-kg-dl6" secondAttribute="top" id="gkd-mS-PfG"/>
+                            <constraint firstItem="h3b-kg-dl6" firstAttribute="bottom" secondItem="z4s-dc-nmo" secondAttribute="bottom" id="mOW-bz-AUj"/>
+                            <constraint firstItem="h3b-kg-dl6" firstAttribute="trailing" secondItem="z4s-dc-nmo" secondAttribute="trailing" id="wWF-aj-zbm"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Job Details" id="yt6-jJ-b02"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SHe-yb-K1J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="832" y="84"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="w4G-27-hMr">
+            <objects>
+                <navigationController id="UC7-6e-rb5" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yQ5-y5-pAL">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="3SN-Gb-2NE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pGi-B4-2qK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-722" y="68"/>
         </scene>
     </scenes>
     <resources>

@@ -15,21 +15,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate, RCTBridgeDelegate {
     static var isDevelopmentOn: Bool = true
     static var shared:AppDelegate? = nil
     
+    func reloadBridge() {
+        AppDelegate.bridge = RCTBridge(delegate: self, launchOptions: nil)
+    }
+    
     func sourceURL(for bridge: RCTBridge!) -> URL! {
         if AppDelegate.isDevelopmentOn {
             return URL(string: "http://localhost:8081/index.bundle?platform=ios")!
         } else {
-            return  FileManager.default.urls(for: .documentDirectory, in:.userDomainMask)[0].appendingPathComponent("main.jsbundle", isDirectory: false)
+            let url = FileManager.default.urls(for: .documentDirectory, in:.userDomainMask)[0].appendingPathComponent("mex/main.jsbundle", isDirectory: false)
+            
+            return url
         }
     }
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        AppDelegate.shared = self;
         AppDelegate.bridge = RCTBridge(delegate: self, launchOptions: launchOptions)
         
         return true
     }
+
     
     // MARK: UISceneSession Lifecycle
 

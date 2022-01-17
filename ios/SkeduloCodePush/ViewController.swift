@@ -7,6 +7,7 @@
 
 import UIKit
 import React
+import ZIPFoundation
 
 class ViewController: UIViewController, UIAlertViewDelegate {
     
@@ -54,9 +55,27 @@ class ViewController: UIViewController, UIAlertViewDelegate {
         
         AppDelegate.isDevelopmentOn = sender.isOn
         
-        if sender.isOn {
-            AppDelegate.bridge.reload()
+        if !sender.isOn {
+            let fileManager = FileManager()
+            let destinationURL = FileManager.default.urls(for: .documentDirectory, in:.userDomainMask)[0].appendingPathComponent("mex", isDirectory: true)
+
+            let sourceUrl = Bundle.main.url(forResource: "main", withExtension: "zip")!
+            
+            do {
+                try fileManager.removeItem(at: destinationURL)
+            } catch {
+                print("Delete failed:\(error)")
+            }
+            
+            do {
+                try fileManager.createDirectory(at: destinationURL, withIntermediateDirectories: true, attributes: nil)
+                try fileManager.unzipItem(at: sourceUrl, to: destinationURL)
+            } catch {
+                print("Extraction of ZIP archive failed with error:\(error)")
+            }
         }
+        
+        AppDelegate.shared!.reloadBridge()
     }
     
     @IBAction func completeJobSimulator(_ sender: Any) {
@@ -84,13 +103,6 @@ class ViewController: UIViewController, UIAlertViewDelegate {
     
     static func showWindowAlert(alertMessage: String, inVC:UIViewController, callback: (() -> Void)?) {
             DispatchQueue.main.async(execute: {
-                guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-                    let sceneDelegate = windowScene.delegate as? SceneDelegate
-                  else {
-                    return
-                  }
-                sceneDelegate.window?.rootViewController = inVC
-                sceneDelegate.window?.windowLevel = UIWindow.Level.alert + 1
             
                 let alert2 = UIAlertController(title: "", message: alertMessage, preferredStyle: .alert)
                 let defaultAction2 = UIAlertAction(title: "OK", style: .default, handler: { action in
@@ -99,10 +111,8 @@ class ViewController: UIViewController, UIAlertViewDelegate {
                     }
                 })
                 alert2.addAction(defaultAction2)
-            
-                sceneDelegate.window?.makeKeyAndVisible()
-            
-                sceneDelegate.window?.rootViewController?.present(alert2, animated: true, completion: nil)
+                    
+                inVC.present(alert2, animated: false, completion: nil)
             })
         }
 }

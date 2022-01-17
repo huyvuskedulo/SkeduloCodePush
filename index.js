@@ -42,7 +42,6 @@ const MainScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-
       <Text style={[styles.text, {fontSize: 30}]}>React Native View</Text>
 
       <Text style={[styles.highScoresTitle, styles.text]}>
