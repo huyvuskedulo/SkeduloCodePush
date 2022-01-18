@@ -12,7 +12,6 @@
 		2E39F42B278D885D00B3C852 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E39F429278D885D00B3C852 /* Main.storyboard */; };
 		2E39F42D278D885E00B3C852 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E39F42C278D885E00B3C852 /* Assets.xcassets */; };
 		2E39F430278D885E00B3C852 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E39F42E278D885E00B3C852 /* LaunchScreen.storyboard */; };
-		2E59EE82278E97AA0076A6E3 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 2E59EE81278E97AA0076A6E3 /* main.jsbundle */; };
 		2E59EE84278E9F740076A6E3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E59EE83278E9F740076A6E3 /* SceneDelegate.swift */; };
 		2E59EE89278ED4B30076A6E3 /* RCTCalendarModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E59EE88278ED4B30076A6E3 /* RCTCalendarModule.m */; };
 		2E59EE8B278ED6400076A6E3 /* SwiftPluginCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E59EE8A278ED6400076A6E3 /* SwiftPluginCall.swift */; };
@@ -34,7 +33,6 @@
 		2E39F42C278D885E00B3C852 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2E39F42F278D885E00B3C852 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2E39F431278D885E00B3C852 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2E59EE81278E97AA0076A6E3 /* main.jsbundle */ = {isa = PBXFileReference; lastKnownFileType = text; path = main.jsbundle; sourceTree = SOURCE_ROOT; };
 		2E59EE83278E9F740076A6E3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		2E59EE86278ED4650076A6E3 /* RCTCalendarModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTCalendarModule.h; sourceTree = "<group>"; };
 		2E59EE87278ED4B20076A6E3 /* SkeduloCodePush-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SkeduloCodePush-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -85,7 +83,6 @@
 			children = (
 				2EB56B3227954E4C00DA5D37 /* main.zip */,
 				2E59EE85278ED4290076A6E3 /* RNCore */,
-				2E59EE81278E97AA0076A6E3 /* main.jsbundle */,
 				2E39F423278D885D00B3C852 /* AppDelegate.swift */,
 				2E39F427278D885D00B3C852 /* ViewController.swift */,
 				2E39F429278D885D00B3C852 /* Main.storyboard */,
@@ -195,7 +192,6 @@
 				2E39F430278D885E00B3C852 /* LaunchScreen.storyboard in Resources */,
 				2E39F42D278D885E00B3C852 /* Assets.xcassets in Resources */,
 				2E39F42B278D885D00B3C852 /* Main.storyboard in Resources */,
-				2E59EE82278E97AA0076A6E3 /* main.jsbundle in Resources */,
 				2EB56B3327954E4C00DA5D37 /* main.zip in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

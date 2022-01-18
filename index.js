@@ -14,6 +14,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import DanceSettings from './mex/dance_settings';
 import ReactNative2048 from './mex/game_2048/game_2048';
 import globalData from './mex/global_data';
+import TinderApp from './mex/tinder_swipe/tinder_app'
 
 const { CalendarModule } = NativeModules;
 const Stack = createNativeStackNavigator();
@@ -30,6 +31,10 @@ const MainScreen = ({ navigation }) => {
 
   const goToReactNative2048 = function() {
     navigation.navigate('ReactNative2048')
+  }
+
+  const goToCatTinder = function() {
+    navigation.navigate('TinderApp')
   }
 
   React.useLayoutEffect(() => {
@@ -50,13 +55,20 @@ const MainScreen = ({ navigation }) => {
 
       <TouchableOpacity onPress={increaseNativeCount}>
         <View>
-          <Text style={styles.button}>Increase Native Count</Text>
+          <Text style={styles.button}>Increase Native Count 123</Text>
         </View>
       </TouchableOpacity>
 
       <TouchableOpacity onPress={goToReactNative2048}>
         <View>
           <Text style={styles.button}>Play 2048</Text>
+        </View>
+      </TouchableOpacity>
+
+
+      <TouchableOpacity onPress={goToCatTinder}>
+        <View>
+          <Text style={styles.button}>Cat Tinder</Text>
         </View>
       </TouchableOpacity>
     
@@ -91,6 +103,11 @@ const MyStack = () => {
           name="ReactNative2048"
           component={ReactNative2048}
           options={{ title: '2048' }}
+        />
+          <Stack.Screen
+          name="TinderApp"
+          component={TinderApp}
+          options={{ title: 'Cat Tinder' }}
         />
       </Stack.Navigator>
     </NavigationContainer>
@@ -143,3 +160,4 @@ eventEmitter.addListener("onJobCompleted", () => {
 // Module name
 AppRegistry.registerComponent('RNHighScores', () => MyStack);
 AppRegistry.registerComponent('ReactNative2048', () => ReactNative2048)
+AppRegistry.registerComponent('CatTinder', () => TinderApp)
