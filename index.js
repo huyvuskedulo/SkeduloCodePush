@@ -7,14 +7,16 @@ import {
   Button,
   TouchableOpacity,
   NativeModules,
-  NativeEventEmitter
+  NativeEventEmitter,
 } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import DanceSettings from './mex/dance_settings';
 import ReactNative2048 from './mex/game_2048/game_2048';
 import globalData from './mex/global_data';
+import NativeBlur from './mex/native_blur/native_blur'
 import TinderApp from './mex/tinder_swipe/tinder_app'
+import MyBigList from './mex/big_list/my_big_list'
 
 const { CalendarModule } = NativeModules;
 const Stack = createNativeStackNavigator();
@@ -25,16 +27,20 @@ const MainScreen = ({ navigation }) => {
     CalendarModule.exit()
   }
 
-  const increaseNativeCount = function() {
-    CalendarModule.increaseNativeCount()
-  }
-
   const goToReactNative2048 = function() {
     navigation.navigate('ReactNative2048')
   }
 
   const goToCatTinder = function() {
     navigation.navigate('TinderApp')
+  }
+
+  const goToNativeBlur = function() {
+    navigation.navigate('NativeBlur')
+  }
+
+  const goToBigList = function() {
+    navigation.navigate('BigList')
   }
 
   React.useLayoutEffect(() => {
@@ -49,13 +55,15 @@ const MainScreen = ({ navigation }) => {
     <View style={styles.container}>
       <Text style={[styles.text, {fontSize: 30}]}>React Native View</Text>
 
-      <Text style={[styles.highScoresTitle, styles.text]}>
-        RN Count Data: {globalData.count}
-      </Text>
-
-      <TouchableOpacity onPress={increaseNativeCount}>
+      <TouchableOpacity onPress={goToNativeBlur}>
         <View>
-          <Text style={styles.button}>Increase Native Count 123</Text>
+          <Text style={styles.button}>Native Blur</Text>
+        </View>
+      </TouchableOpacity>
+
+      <TouchableOpacity onPress={goToBigList}>
+        <View>
+          <Text style={styles.button}>Big List</Text>
         </View>
       </TouchableOpacity>
 
@@ -64,7 +72,6 @@ const MainScreen = ({ navigation }) => {
           <Text style={styles.button}>Play 2048</Text>
         </View>
       </TouchableOpacity>
-
 
       <TouchableOpacity onPress={goToCatTinder}>
         <View>
@@ -104,10 +111,25 @@ const MyStack = () => {
           component={ReactNative2048}
           options={{ title: '2048' }}
         />
-          <Stack.Screen
+        <Stack.Screen
           name="TinderApp"
           component={TinderApp}
-          options={{ title: 'Cat Tinder' }}
+          options={{ title: 'Cat Tinder',   
+            headerStyle: {
+              backgroundColor: '#F08F90',
+            },       
+          }}
+        />
+        <Stack.Screen
+          name="BigList"
+          component={MyBigList}
+          options={{ title: 'Big List' }}
+        />
+
+        <Stack.Screen
+          name="NativeBlur"
+          component={NativeBlur}
+          options={{ title: 'Native Blur' }}
         />
       </Stack.Navigator>
     </NavigationContainer>
