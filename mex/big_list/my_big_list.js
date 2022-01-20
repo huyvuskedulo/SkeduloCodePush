@@ -16,18 +16,18 @@ for(i = 0; i < 1000000; i++){
 
   const renderItem = ({ item, index }) => (
     <View style={{ padding:10}}>
-      <Text style={{color: "white", fontSize: 30}}>{item.name}</Text>
+      <Text style={{color: "white", fontSize: 25}}>{item.name}</Text>
       <Image
         source={{
           uri: 'https://images.glints.com/unsafe/glints-dashboard.s3.amazonaws.com/company-logo/fb98e6a1e1225d7db1e08f0cbe19f70e.png',
         }}
-        style={{ width: '100%', height: 400 }}
+        style={{ width: '100%', height: 200 }}
       />
     </View>
   );
   
   return (
-    <View>
+    <View style={{backgroundColor: "white"}}>
     <FlatList
       data={data}
       renderItem={renderItem}

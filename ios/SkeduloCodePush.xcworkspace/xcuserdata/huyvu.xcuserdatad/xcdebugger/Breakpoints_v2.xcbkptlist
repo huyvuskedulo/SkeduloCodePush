@@ -110,25 +110,9 @@
             filePath = "SkeduloCodePush/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
             landmarkName = "completeJobSimulator(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "262266C1-7BCF-4B91-AB6B-9D4CF980B238"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SkeduloCodePush/ViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "onDevelopmentModeChanged(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

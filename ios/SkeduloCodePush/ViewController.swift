@@ -46,36 +46,101 @@ class ViewController: UIViewController, UIAlertViewDelegate {
     }
     
     @IBAction func downloadLatest(_ sender: Any) {
+        async {
+            
+            await downloadLatestMex()
+            
+            AppDelegate.shared!.reloadBridge()
         
+        }
     }
 
     @IBAction func onDevelopmentModeChanged(_ sender: UISwitch) {
         
-        _downloadLatestBtn.isHidden = sender.isOn
-        
-        AppDelegate.isDevelopmentOn = sender.isOn
-        
-        if !sender.isOn {
-            let fileManager = FileManager()
-            let destinationURL = FileManager.default.urls(for: .documentDirectory, in:.userDomainMask)[0].appendingPathComponent("mex", isDirectory: true)
-
-            let sourceUrl = Bundle.main.url(forResource: "main", withExtension: "zip")!
+        async {
+            _downloadLatestBtn.isHidden = sender.isOn
             
-            do {
-                try fileManager.removeItem(at: destinationURL)
-            } catch {
-                print("Delete failed:\(error)")
+            AppDelegate.isDevelopmentOn = sender.isOn
+            
+            if !sender.isOn {
+                
+                if FileManager.default.fileExists(atPath: try getStoredZipFilePath().absoluteString) {
+                    
+                    await downloadLatestMex();
+                }
             }
             
-            do {
-                try fileManager.createDirectory(at: destinationURL, withIntermediateDirectories: true, attributes: nil)
-                try fileManager.unzipItem(at: sourceUrl, to: destinationURL)
-            } catch {
-                print("Extraction of ZIP archive failed with error:\(error)")
-            }
+            AppDelegate.shared!.reloadBridge()
+        }
+    }
+        
+    func downloadLatestMex() async {
+        
+        DispatchQueue.main.async {
+            LoadingIndicatorView.show(self.view)
         }
         
-        AppDelegate.shared!.reloadBridge()
+        let sourceUrl = URL(string: "https://codepush-be.herokuapp.com/")!
+        let destinationURL = FileManager.default.urls(for: .documentDirectory, in:.userDomainMask)[0].appendingPathComponent("mex", isDirectory: true)
+
+        do {
+            defer {
+                DispatchQueue.main.async {
+                    LoadingIndicatorView.hide()
+                }
+            }
+            
+            let (fileUrl, _) = try await URLSession.shared.download(for: URLRequest(url: sourceUrl), delegate: nil)
+            
+            do {
+                let savedURL = try getStoredZipFilePath()
+                
+                do {
+                    try FileManager.default.removeItem(at: savedURL)
+                } catch {
+                    print("Delete failed:\(error)")
+                }
+                
+                try FileManager.default.moveItem(at: fileUrl, to: savedURL)
+            
+                if (savedURL == nil) {
+                    return
+                }
+                
+                do {
+                    try FileManager.default.removeItem(at: destinationURL)
+                } catch {
+                    print("Delete failed:\(error)")
+                }
+                
+                do {
+                    try  FileManager.default.createDirectory(at: destinationURL, withIntermediateDirectories: true, attributes: nil)
+                    try  FileManager.default.unzipItem(at: savedURL, to: destinationURL)
+                } catch {
+                    print("Extraction of ZIP archive failed with error:\(error)")
+                }
+            } catch {
+                print ("file error: \(error)")
+            
+                return
+            }
+
+        } catch {
+            return
+        }
+        
+    }
+    
+    func getStoredZipFilePath() throws -> URL {
+        let documentsURL =
+            try FileManager.default.url(for: .documentDirectory,
+                                    in: .userDomainMask,
+                                    appropriateFor: nil,
+                                    create: false)
+        
+        let savedURL = documentsURL.appendingPathComponent("main.zip")
+        
+        return savedURL;
     }
     
     @IBAction func completeJobSimulator(_ sender: Any) {

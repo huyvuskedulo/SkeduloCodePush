@@ -142,6 +142,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     alignContent: 'space-around',
+    backgroundColor: 'green'
   },
   highScoresTitle: {
     fontSize: 20,
@@ -168,6 +169,7 @@ eventEmitter.addListener("increaseCount", () => {
   globalData.count++;
 })
 eventEmitter.addListener("onJobCompleted", () => {
+
   if (globalData.RN2048Score > 50) {
     return CalendarModule.callback("")
   } else {

@@ -15,6 +15,7 @@
 		2E59EE84278E9F740076A6E3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E59EE83278E9F740076A6E3 /* SceneDelegate.swift */; };
 		2E59EE89278ED4B30076A6E3 /* RCTCalendarModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E59EE88278ED4B30076A6E3 /* RCTCalendarModule.m */; };
 		2E59EE8B278ED6400076A6E3 /* SwiftPluginCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E59EE8A278ED6400076A6E3 /* SwiftPluginCall.swift */; };
+		2E6BBB5C27996279009888B4 /* LoadingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6BBB5B27996279009888B4 /* LoadingIndicatorView.swift */; };
 		2EB56B29278FEC8E00DA5D37 /* ReactNativeEventEmitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EB56B28278FEC8E00DA5D37 /* ReactNativeEventEmitter.m */; };
 		2EB56B2B278FECAF00DA5D37 /* ReactNativeEventEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB56B2A278FECAF00DA5D37 /* ReactNativeEventEmitter.swift */; };
 		2EB56B2D278FECDD00DA5D37 /* EventEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB56B2C278FECDD00DA5D37 /* EventEmitter.swift */; };
@@ -38,6 +39,7 @@
 		2E59EE87278ED4B20076A6E3 /* SkeduloCodePush-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SkeduloCodePush-Bridging-Header.h"; sourceTree = "<group>"; };
 		2E59EE88278ED4B30076A6E3 /* RCTCalendarModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCTCalendarModule.m; sourceTree = "<group>"; };
 		2E59EE8A278ED6400076A6E3 /* SwiftPluginCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftPluginCall.swift; sourceTree = "<group>"; };
+		2E6BBB5B27996279009888B4 /* LoadingIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorView.swift; sourceTree = "<group>"; };
 		2EB56B28278FEC8E00DA5D37 /* ReactNativeEventEmitter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReactNativeEventEmitter.m; sourceTree = "<group>"; };
 		2EB56B2A278FECAF00DA5D37 /* ReactNativeEventEmitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactNativeEventEmitter.swift; sourceTree = "<group>"; };
 		2EB56B2C278FECDD00DA5D37 /* EventEmitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventEmitter.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				2E39F431278D885E00B3C852 /* Info.plist */,
 				2E59EE83278E9F740076A6E3 /* SceneDelegate.swift */,
 				2EB56B302795398D00DA5D37 /* JobSimulatorViewController.swift */,
+				2E6BBB5B27996279009888B4 /* LoadingIndicatorView.swift */,
 			);
 			path = SkeduloCodePush;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 			files = (
 				2EB56B29278FEC8E00DA5D37 /* ReactNativeEventEmitter.m in Sources */,
 				2EB56B2D278FECDD00DA5D37 /* EventEmitter.swift in Sources */,
+				2E6BBB5C27996279009888B4 /* LoadingIndicatorView.swift in Sources */,
 				2EB56B2B278FECAF00DA5D37 /* ReactNativeEventEmitter.swift in Sources */,
 				2E39F428278D885D00B3C852 /* ViewController.swift in Sources */,
 				2E39F424278D885D00B3C852 /* AppDelegate.swift in Sources */,
