@@ -8,26 +8,25 @@
 import Foundation
 
 class JSProcessManager {
-    typealias InvokeMethodContinuation = CheckedContinuation<ReactNativeCallbackData, Error>
 
     static var shared: JSProcessManager = JSProcessManager();
-    var currentContinuation: InvokeMethodContinuation? = nil;
+    var currentCallback: ((ReactNativeCallbackData) -> ())? = nil
     
-    func invokeMethod(methodName: String) async throws -> ReactNativeCallbackData {
+
+    
+    func invokeMethod(methodName: String, callBack: @escaping (ReactNativeCallbackData) -> ()) {
             
-        return try await withCheckedThrowingContinuation { (continuation:InvokeMethodContinuation) in
-            currentContinuation = continuation;
-            
-            EventEmitter.sharedInstance.dispatch(name: methodName, body: nil)
-        }
+        currentCallback = callBack;
+        
+        EventEmitter.sharedInstance.dispatch(name: methodName, body: nil)
     }
     
     func callBackMethod(result: String) {
-        if currentContinuation == nil {
+        if currentCallback == nil {
             return;
         }
         
-        currentContinuation?.resume(with: Result.success(result.parse(to: ReactNativeCallbackData.self) ?? ReactNativeCallbackData()))
+        currentCallback!(result.parse(to: ReactNativeCallbackData.self) ?? ReactNativeCallbackData())
     }
     
 }

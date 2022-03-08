@@ -1,0 +1,24 @@
+
+{
+    "DemoDataDrivenScreen": {
+        "components":     
+        [
+            {
+                "title": "Field 1",
+                "placeholder": "Enter field 1"
+            },
+            {
+                "title": "Field 2",
+                "placeholder": "Enter field 2"
+            },
+            {
+                "title": "Field 3",
+                "placeholder": "Enter field 3"
+            },
+            {
+                "title": "Field 4",
+                "placeholder": "Enter field 4"
+            }
+        ]
+    }
+}

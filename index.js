@@ -17,6 +17,7 @@ import globalData from './mex/global_data';
 import NativeBlur from './mex/native_blur/native_blur'
 import TinderApp from './mex/tinder_swipe/tinder_app'
 import MyBigList from './mex/big_list/my_big_list'
+import DataDrivenScreen from './mex/data_driven/data_driven_screen'
 
 const { CalendarModule } = NativeModules;
 const Stack = createNativeStackNavigator();
@@ -41,6 +42,10 @@ const MainScreen = ({ navigation }) => {
 
   const goToBigList = function() {
     navigation.navigate('BigList')
+  }
+
+  const goToDataDrivenScreen = function() {
+    navigation.navigate('DataDrivenScreen', {formName: "DemoDataDrivenScreen"})
   }
 
   React.useLayoutEffect(() => {
@@ -76,6 +81,13 @@ const MainScreen = ({ navigation }) => {
       <TouchableOpacity onPress={goToCatTinder}>
         <View>
           <Text style={styles.button}>Cat Tinder</Text>
+        </View>
+      </TouchableOpacity>
+
+
+      <TouchableOpacity onPress={goToDataDrivenScreen}>
+        <View>
+          <Text style={styles.button}>Data Driven UI</Text>
         </View>
       </TouchableOpacity>
     
@@ -125,11 +137,15 @@ const MyStack = () => {
           component={MyBigList}
           options={{ title: 'Big List' }}
         />
-
         <Stack.Screen
           name="NativeBlur"
           component={NativeBlur}
           options={{ title: 'Native Blur' }}
+        />
+        <Stack.Screen
+          name="DataDrivenScreen"
+          component={DataDrivenScreen}
+          options={{ title: 'DataDrivenScreen' }}
         />
       </Stack.Navigator>
     </NavigationContainer>
@@ -142,7 +158,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     alignContent: 'space-around',
-    backgroundColor: 'green'
   },
   highScoresTitle: {
     fontSize: 20,
